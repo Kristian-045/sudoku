@@ -32,5 +32,12 @@
     -fx-border-color: -fx-border-color-primary;
     -fx-border-width: 2px;
     -fx-text-fill:-fx-text-color ;
+    -fx-border-radius: 5;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 25;
+}
+
+.txt{
+    -fx-fill: #5A8ABE;
 }
 
