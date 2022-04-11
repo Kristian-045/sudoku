@@ -1,0 +1,36 @@
+/*tak sa definuju globalne premenne*/
+* {
+    -fx-primary: #182a3e;
+    -fx-border-color-primary: #3c628c;
+    -fx-text-color:white;
+    /*btn*/
+    -fx-btn-background-color: #1e334b;
+    -fx-btn-border-color: #355373;
+
+}
+.body{
+    -fx-background-color:-fx-primary;
+}
+.game-grid{
+    -fx-background-color: -fx-primary ;
+}
+.game-grid-cell {
+    /*prve je farba mriezky druhe je farba */
+    /*-fx-background-color: -fx-border-color-primary, transparent ;*/
+    /*ta prva jednotka je medzera*/
+    /*-fx-background-insets: 3, 0 ;*/
+
+    -fx-border-color:-fx-border-color-primary ;
+    -fx-border-width: 4px;
+}
+.inside-grid-cell{
+    -fx-border-color:-fx-border-color-primary ;
+    -fx-border-width: 2px;
+}
+.btn{
+    -fx-background-color: -fx-btn-background-color;
+    -fx-border-color: -fx-border-color-primary;
+    -fx-border-width: 2px;
+    -fx-text-fill:-fx-text-color ;
+}
+
