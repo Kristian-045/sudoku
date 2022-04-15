@@ -23,6 +23,8 @@ import java.util.Objects;
 public class LandingScreen {
 
 
+    private SceneOperations sceneOperations = new SceneOperations();
+
     @FXML
     protected void quitSolver(){
         Platform.exit();
@@ -31,15 +33,6 @@ public class LandingScreen {
 
     @FXML
     protected void startSolver(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("input-method-screen.fxml"));
-        Scene scene = new Scene(loader.load(), 1024, 576);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toString());
-
-        stage.setScene(scene);
-        stage.show();
+        sceneOperations.setScene(event, "input-method-screen.fxml");
     }
-
-
 }

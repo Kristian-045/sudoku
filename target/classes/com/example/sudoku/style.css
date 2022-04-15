@@ -40,6 +40,20 @@
 
 .btn:hover{
     -fx-background-color: -fx-btn-border-color;
+    -fx-cursor: hand;
+}
+
+.selectPane{
+    -fx-background-color: #1E334B;
+    -fx-border-color: #3C638D;
+    -fx-border-width: 4;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.selectPane:hover{
+    -fx-background-color: #3C638D;
+    -fx-cursor: hand;
 }
 
 .txt{
