@@ -6,7 +6,7 @@
     /*btn*/
     -fx-btn-background-color: #1e334b;
     -fx-btn-border-color: #355373;
-    /*-fx-border-color-primary: red;*/
+
 }
 .body{
     -fx-background-color:-fx-primary;
@@ -33,8 +33,13 @@
     -fx-border-width: 2px;
     -fx-text-fill:-fx-text-color ;
     -fx-border-radius: 5;
+    -fx-background-radius: 5;
     -fx-font-family: "Segoe UI";
     -fx-font-size: 25;
+}
+
+.btn:hover{
+    -fx-background-color: -fx-btn-border-color;
 }
 
 .txt{

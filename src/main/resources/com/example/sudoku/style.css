@@ -33,8 +33,13 @@
     -fx-border-width: 2px;
     -fx-text-fill:-fx-text-color ;
     -fx-border-radius: 5;
+    -fx-background-radius: 5;
     -fx-font-family: "Segoe UI";
     -fx-font-size: 25;
+}
+
+.btn:hover{
+    -fx-background-color: -fx-btn-border-color;
 }
 
 .txt{
