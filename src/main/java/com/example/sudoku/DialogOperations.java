@@ -11,4 +11,12 @@ public class DialogOperations {
         alert.show();
     }
 
+    public void invalidFileFormatAlert(){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Invalid File Format");
+        alert.setHeaderText(null);
+        alert.setContentText("Your selected file's format isn't valid. It should be a .csv file only containing numbers 1-9 in a 9x9 format.");
+        alert.show();
+    }
+
 }

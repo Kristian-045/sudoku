@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class InputMethodScreen {
 
@@ -16,6 +17,8 @@ public class InputMethodScreen {
 
     private final SceneOperations sceneOperations = new SceneOperations();
     private final DialogOperations dialogOperations = new DialogOperations();
+
+    private final SolverLogic solverLogic = new SolverLogic();
 
     private void setManualSelected(boolean manualSelected){
         this.manualSelected = manualSelected;
@@ -85,6 +88,11 @@ public class InputMethodScreen {
             File file = fileChooser.showOpenDialog(stage);
 
             if (file != null){
+                String[][] sudokuArray = solverLogic.csvToStringArray(file);
+
+                if (!solverLogic.isFileSizeValid(sudokuArray) || !solverLogic.areFileCharactersValid(sudokuArray)){
+                    dialogOperations.invalidFileFormatAlert();
+                }
 
             }
 
