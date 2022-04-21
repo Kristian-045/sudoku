@@ -1,14 +1,16 @@
 package com.example.sudoku;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+
+import java.util.Arrays;
 
 public class HelloController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void highlight(MouseEvent event){
+        String id =  event.getSource().toString().split("id=")[1].substring(0,6);
+
+
     }
 }

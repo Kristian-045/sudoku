@@ -11,6 +11,12 @@
 .body{
     -fx-background-color:-fx-primary;
 }
+.grid-text{
+    -fx-font-family: "Segoe UI";
+    -fx-fill: white ;
+    -fx-font-size: 30;
+
+}
 .game-grid{
     -fx-background-color: -fx-primary ;
 }
