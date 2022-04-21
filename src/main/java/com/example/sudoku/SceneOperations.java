@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,6 +14,10 @@ public class SceneOperations {
 
     public Stage getStage(ActionEvent event){
         return (Stage) ((Node) event.getSource()).getScene().getWindow();
+    }
+
+    public Scene getScene(MouseEvent event){
+        return (Scene) ((Node) event.getSource()).getScene();
     }
 
     public void setScene(ActionEvent event, String sceneName) throws IOException {
