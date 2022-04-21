@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="576" prefWidth="1024" styleClass="body" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.HelloController">
+<AnchorPane fx:id="anchorPane" prefHeight="576" prefWidth="1024" styleClass="body" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.HelloController">
    <children>
-      <GridPane layoutX="286.0" layoutY="14.0" prefHeight="450.0" prefWidth="450.0" styleClass="game-grid">
+      <GridPane fx:id="gridPane" layoutX="286.0" layoutY="14.0" prefHeight="450.0" prefWidth="450.0" styleClass="game-grid">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -507,7 +507,7 @@
          <font>
             <Font name="Segoe UI" size="25.0" />
          </font></Button>
-      <Button layoutX="541.0" layoutY="495.0" mnemonicParsing="false" styleClass="btn" text="CLEAR">
+      <Button layoutX="541.0" onAction="#clear" layoutY="495.0" mnemonicParsing="false" styleClass="btn" text="CLEAR">
          <font>
             <Font name="Segoe UI" size="25.0" />
          </font></Button>

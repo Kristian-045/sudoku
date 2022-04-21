@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -17,6 +18,13 @@ public class SceneOperations {
     }
 
     public Scene getScene(MouseEvent event){
+        return (Scene) ((Node) event.getSource()).getScene();
+    }
+    //to iste ako getscene ale funguje to na keyevEvent a OnAction :)
+    public Scene getSceneKeyEvent(KeyEvent event){
+        return (Scene) ((Node) event.getSource()).getScene();
+    }
+    public Scene getSceneActionEvent(ActionEvent event){
         return (Scene) ((Node) event.getSource()).getScene();
     }
 
