@@ -6,8 +6,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SolverLogic {
+    public int[][] sudoku = new int[9][9];
 
+    public SolverLogic(int[][] sudoku) {
+        this.sudoku = sudoku;
+    }
 
+    public SolverLogic() {
+    }
+
+    public void setSudoku(int[][] sudoku) {
+        this.sudoku = sudoku;
+    }
     public String[][] csvToStringArray(File file) throws IOException {
 
         List<String[]> lists = new ArrayList<>();

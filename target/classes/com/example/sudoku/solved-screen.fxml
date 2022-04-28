@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="576" prefWidth="1024" styleClass="body" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.HelloController">
+<AnchorPane fx:id="anchorPane" prefHeight="576" prefWidth="1024" styleClass="body" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.HelloController">
    <children>
-      <GridPane layoutX="287.0" layoutY="14.0" prefHeight="450.0" prefWidth="450.0" styleClass="game-grid">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <GridPane fx:id="gridPane" layoutX="286.0" layoutY="14.0" prefHeight="450.0" prefWidth="450.0" styleClass="game-grid">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="game-grid-cell">
                <children>
@@ -36,15 +32,33 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane fx:id="cell11" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell12" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell13" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell14" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell15" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell16" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell17" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell18" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell19" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
                      </children>
                   </GridPane>
                </children></Pane>
@@ -62,15 +76,33 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane fx:id="cell21" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell22" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell23" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell24" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell25" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell26" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell27" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell28" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell29" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
                      </children>
                   </GridPane>
                </children></Pane>
@@ -88,15 +120,33 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane fx:id="cell31" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell32" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell33" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell34" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell35" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell36" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell37" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell38" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell39" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
                      </children>
                   </GridPane>
                </children></Pane>
@@ -114,15 +164,33 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane fx:id="cell41" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell42" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell43" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell44" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell45" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell46" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell47" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell48" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell49" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
                      </children>
                   </GridPane>
                </children></Pane>
@@ -140,15 +208,33 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane fx:id="cell51" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell52" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell53" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell54" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell55" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell56" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell57" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell58" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell59" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
                      </children>
                   </GridPane>
                </children></Pane>
@@ -166,15 +252,33 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane fx:id="cell61" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell62" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell63" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell64" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell65" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell66" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell67" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell68" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell69" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
                      </children>
                   </GridPane>
                </children></Pane>
@@ -192,15 +296,33 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane fx:id="cell71" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell72" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell73" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell74" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell75" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell76" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell77" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell78" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell79" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
                      </children>
                   </GridPane>
                </children></Pane>
@@ -218,15 +340,33 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane fx:id="cell81" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell82" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell83" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell84" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell85" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell86" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell87" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell88" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell89" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
                      </children>
                   </GridPane>
                </children></Pane>
@@ -244,15 +384,33 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Pane fx:id="cell91" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell92" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell93" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell94" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell95" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell96" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell97" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell98" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
+                        <Pane fx:id="cell99" onMouseClicked="#highlight" prefHeight="200.0" prefWidth="200.0" styleClass="inside-grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <Text layoutX="4.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="grid-text" textAlignment="CENTER" wrappingWidth="42" />
+                        </Pane>
                      </children>
                   </GridPane>
                </children></Pane>
@@ -268,3 +426,4 @@
          </font></Button>
    </children>
 </AnchorPane>
+

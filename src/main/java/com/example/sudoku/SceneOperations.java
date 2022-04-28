@@ -20,7 +20,6 @@ public class SceneOperations {
     public Scene getScene(MouseEvent event){
         return (Scene) ((Node) event.getSource()).getScene();
     }
-    //to iste ako getscene ale funguje to na keyevEvent a OnAction :)
     public Scene getSceneKeyEvent(KeyEvent event){
         return (Scene) ((Node) event.getSource()).getScene();
     }
@@ -39,4 +38,17 @@ public class SceneOperations {
         stage.setScene(scene);
         stage.show();
     }
+    public void setSolvedScene(ActionEvent event ,int [][] sudoku) throws IOException {
+
+        Stage stage = getStage(event);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("solved-screen.fxml"));
+        Scene scene = new Scene(loader.load(), 1024, 576);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toString());
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
 }
