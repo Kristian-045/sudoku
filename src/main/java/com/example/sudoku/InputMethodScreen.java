@@ -2,6 +2,10 @@ package com.example.sudoku;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -11,6 +15,10 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class InputMethodScreen {
+
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
 
     private boolean manualSelected = false;
     private boolean importSelected = false;
@@ -92,8 +100,21 @@ public class InputMethodScreen {
 
                 if (!solverLogic.isFileSizeValid(sudokuArray) || !solverLogic.areFileCharactersValid(sudokuArray)){
                     dialogOperations.invalidFileFormatAlert();
+                }else{
+
+                    solverLogic.setSudoku(solverLogic.convertToIntArray(sudokuArray));
+
+                    if (solverLogic.solveSudoku(solverLogic.getSudoku())){
+
+                        sceneOperations.setSolvedScene(event, root, solverLogic);
+
+                    }else{
+                        dialogOperations.invalidSudokuAlert();
+                    }
                 }
 
+            }else{
+                dialogOperations.invalidFileInput();
             }
 
         }

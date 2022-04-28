@@ -3,9 +3,12 @@ package com.example.sudoku;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -38,17 +41,23 @@ public class SceneOperations {
         stage.setScene(scene);
         stage.show();
     }
-    public void setSolvedScene(ActionEvent event ,int [][] sudoku) throws IOException {
-
-        Stage stage = getStage(event);
+    public void setSolvedScene(ActionEvent event, Parent root, SolverLogic solverLogic) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("solved-screen.fxml"));
-        Scene scene = new Scene(loader.load(), 1024, 576);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toString());
+        root = loader.load();
 
+        SolvedScreenController solvedScreenController = loader.getController();
+        solvedScreenController.setSolverLogic(solverLogic);
+
+        Stage stage = getStage(event);
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toString());
         stage.setScene(scene);
         stage.show();
+
+        solvedScreenController.fillSolvedSudoku(scene);
     }
 
-
 }
+
+

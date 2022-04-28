@@ -2,6 +2,7 @@ package com.example.sudoku;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -14,6 +15,11 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class HelloController {
+
+    private Parent root;
+    private final DialogOperations dialogOperations = new DialogOperations();
+    private final SolverLogic solverLogic = new SolverLogic();
+
     String lastCellId = "#cell11";
     @FXML
     AnchorPane anchorPane;
@@ -31,20 +37,32 @@ public class HelloController {
                 Pane cell = (Pane) scene.lookup(id);
 //                System.out.println(id);
                 Text text = (Text) cell.getChildren().get(0);
-                String cislo = text.getText();
-                if (cislo != "") {
+                String cislo = text.getText().trim();
+                if (!cislo.equals("")) {
                     sudoka[i - 1][j - 1] = Integer.parseInt(text.getText());
+                }else{
+                    sudoka[i - 1][j - 1] = 0;
                 }
             }
         }
-//        System.out.println(Arrays.deepToString(sudoka));
-        int [][] novaSudoka= convert(sudoka);
-        SolverLogic logic = new SolverLogic(novaSudoka);
-        sceneOperations.setSolvedScene(event,sudoka);
+
+        int [][] convertedSudoku = convertToRows(sudoka);
+
+        System.out.println(Arrays.deepToString(convertedSudoku));
+
+        solverLogic.setSudoku(convertedSudoku);
+
+        if (solverLogic.solveSudoku(solverLogic.getSudoku())){
+
+            sceneOperations.setSolvedScene(event, root, solverLogic);
+
+        }else{
+            dialogOperations.invalidSudokuAlert();
+        }
 
     }
 
-    public int[][] convert(int[][] sudoka) {
+    public int[][] convertToRows(int[][] sudoka) {
         int [][] novaSudoka = new int[9][9];
         for (int i = 0; i <9 ; i++) {
             for (int j = 0; j <9 ; j++) {
@@ -55,12 +73,10 @@ public class HelloController {
                 novaSudoka[i][j]=sudoka[y+row*3][x+col*3];
             }
         }
-        System.out.println(Arrays.deepToString(novaSudoka));
         return novaSudoka;
     }
 
     public void initialize() {
-        System.out.println("aa");
 //        Stage stage = (Stage) anchorPane.getScene().getWindow();
         anchorPane.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
             int cislo = getValidNumber(event);
