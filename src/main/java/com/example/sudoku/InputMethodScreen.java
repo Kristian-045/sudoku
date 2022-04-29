@@ -102,12 +102,16 @@ public class InputMethodScreen {
                     dialogOperations.invalidFileFormatAlert();
                 }else{
 
-                    solverLogic.setSudoku(solverLogic.convertToIntArray(sudokuArray));
+                    int[][] convertedSudoku = solverLogic.convertToIntArray(sudokuArray);
 
-                    if (solverLogic.solveSudoku(solverLogic.getSudoku())){
+                    solverLogic.setSudoku(convertedSudoku);
 
-                        sceneOperations.setSolvedScene(event, root, solverLogic);
-
+                    if (solverLogic.isSudokuValid(convertedSudoku)){
+                        if (solverLogic.solve(convertedSudoku)){
+                            sceneOperations.setSolvedScene(event, root, solverLogic);
+                        }else{
+                            dialogOperations.invalidSudokuAlert();
+                        }
                     }else{
                         dialogOperations.invalidSudokuAlert();
                     }

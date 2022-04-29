@@ -4,12 +4,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class SolverLogic {
 
-    final int sudokuLength = 9;
+    private static final int SUDOKU_SIZE = 9;
+    private static final int NO_VALUE = 0;
+    private static final int SUBSECTION_SIZE = 3;
+    private static final int SUDOKU_START_INDEX = 0;
 
-    public int[][] sudoku = new int[sudokuLength][sudokuLength];
+    public int[][] sudoku = new int[SUDOKU_SIZE][SUDOKU_SIZE];
 
 
     public SolverLogic(int[][] sudoku) {
@@ -23,7 +27,7 @@ public class SolverLogic {
         this.sudoku = sudoku;
     }
 
-    public int[][] getSudoku(){
+    public int[][] getSudoku() {
         return sudoku;
     }
 
@@ -35,7 +39,7 @@ public class SolverLogic {
         BufferedReader br = new BufferedReader(fr);
         String line;
 
-        while ((line = br.readLine()) != null){
+        while ((line = br.readLine()) != null) {
 
             line = line.replaceAll("\\s+", "");
 
@@ -49,11 +53,11 @@ public class SolverLogic {
         return itemsArray;
     }
 
-    public int[][] convertToIntArray(String[][] stringArray){
-        int[][] intArray = new int[sudokuLength][sudokuLength];
+    public int[][] convertToIntArray(String[][] stringArray) {
+        int[][] intArray = new int[SUDOKU_SIZE][SUDOKU_SIZE];
 
-        for (int i = 0; i < sudokuLength; i++){
-            for (int j = 0; j < sudokuLength; j++){
+        for (int i = 0; i < SUDOKU_SIZE; i++) {
+            for (int j = 0; j < SUDOKU_SIZE; j++) {
                 intArray[i][j] = Integer.parseInt(stringArray[i][j]);
             }
         }
@@ -63,12 +67,12 @@ public class SolverLogic {
 
     public boolean isFileSizeValid(String[][] sudokuArray) throws IOException {
 
-        if (sudokuArray.length != sudokuLength){
+        if (sudokuArray.length != SUDOKU_SIZE) {
             return false;
         }
 
-        for (String[] arr : sudokuArray){
-            if (arr.length != sudokuLength){
+        for (String[] arr : sudokuArray) {
+            if (arr.length != SUDOKU_SIZE) {
                 return false;
             }
         }
@@ -76,11 +80,11 @@ public class SolverLogic {
         return true;
     }
 
-    public boolean areFileCharactersValid(String[][] sudokuArray){
+    public boolean areFileCharactersValid(String[][] sudokuArray) {
 
-        for (String[] arr : sudokuArray){
-            for (String s : arr){
-                if (!s.trim().matches("[0-9]") || s.trim().length() != 1){
+        for (String[] arr : sudokuArray) {
+            for (String s : arr) {
+                if (!s.trim().matches("[0-9]") || s.trim().length() != 1) {
                     return false;
                 }
             }
@@ -89,21 +93,52 @@ public class SolverLogic {
         return true;
     }
 
-    protected boolean solveSudoku(int[][] sudoku) {
-        for (int row = 0; row < sudokuLength; row++) {
-            for (int col = 0; col < sudokuLength; col++) {
-                if (sudoku[row][col] == 0) {
-                    for (int numberToTry = 1; numberToTry <= sudokuLength; numberToTry++) {
-                        if (isPlacementValid(sudoku, numberToTry, row, col)) {
-                            sudoku[row][col] = numberToTry;
 
-                            if (solveSudoku(sudoku)) {
-                                return true;
-                            }
-                            else {
-                                sudoku[row][col] = 0;
-                            }
+
+
+    public boolean isBoxValid(int[][] sudoku, int row, int column) {
+        boolean[] constraint = new boolean[SUDOKU_SIZE];
+        int subsectionRowStart = (row / SUBSECTION_SIZE) * SUBSECTION_SIZE;
+        int subsectionRowEnd = subsectionRowStart + SUBSECTION_SIZE;
+
+        int subsectionColumnStart = (column / SUBSECTION_SIZE) * SUBSECTION_SIZE;
+        int subsectionColumnEnd = subsectionColumnStart + SUBSECTION_SIZE;
+
+        for (int r = subsectionRowStart; r < subsectionRowEnd; r++) {
+            for (int c = subsectionColumnStart; c < subsectionColumnEnd; c++) {
+                if (!checkConstraint(sudoku, r, constraint, c)) return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isColumnValid(int[][] sudoku, int column) {
+        boolean[] constraint = new boolean[SUDOKU_SIZE];
+        return IntStream.range(0, SUDOKU_SIZE)
+                .allMatch(row -> checkConstraint(sudoku, row, constraint, column));
+    }
+
+    public boolean isRowValid(int[][] sudoku, int row) {
+        boolean[] constraint = new boolean[SUDOKU_SIZE];
+        return IntStream.range(0, SUDOKU_SIZE)
+                .allMatch(column -> checkConstraint(sudoku, row, constraint, column));
+    }
+    public boolean isValid(int[][] sudoku, int row, int column) {
+        return (isRowValid(sudoku, row)
+                && isColumnValid(sudoku, column)
+                && isBoxValid(sudoku, row, column));
+    }
+
+    public boolean solve(int[][] sudoku) {
+        for (int row = SUDOKU_START_INDEX; row < SUDOKU_SIZE; row++) {
+            for (int column = SUDOKU_START_INDEX; column < SUDOKU_SIZE; column++) {
+                if (sudoku[row][column] == NO_VALUE) {
+                    for (int k = 1; k <= 9; k++) {
+                        sudoku[row][column] = k;
+                        if (isValid(sudoku, row, column) && solve(sudoku)) {
+                            return true;
                         }
+                        sudoku[row][column] = NO_VALUE;
                     }
                     return false;
                 }
@@ -112,42 +147,30 @@ public class SolverLogic {
         return true;
     }
 
-    private boolean isNumberInRow(int[][] sudoku, int number, int row) {
-        for (int i = 0; i < sudokuLength; i++) {
-            if (sudoku[row][i] == number) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isNumberInCol(int[][] sudoku, int number, int col) {
-        for (int i = 0; i < sudokuLength; i++) {
-            if (sudoku[i][col] == number) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isNumberInBox(int[][] sudoku, int number, int row, int col) {
-        int localBoxRow = row - row % 3;
-        int localBoxcol = col - col % 3;
-
-        for (int i = localBoxRow; i < localBoxRow + 3; i++) {
-            for (int j = localBoxcol; j < localBoxcol + 3; j++) {
-                if (sudoku[i][j] == number) {
-                    return true;
+    public boolean isSudokuValid(int[][] sudoku){
+        for (int row = 0; row < 9; row++){
+            for (int col = 0; col < 9; col++){
+                if (!isValid(sudoku, row, col)){
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
-    private boolean isPlacementValid(int[][] sudoku, int number, int row, int col) {
-        return !isNumberInRow(sudoku, number, row) &&
-                !isNumberInCol(sudoku, number, col) &&
-                !isNumberInBox(sudoku, number, row, col);
-    }
 
+    boolean checkConstraint(
+            int[][] sudoku,
+            int row,
+            boolean[] constraint,
+            int column) {
+        if (sudoku[row][column] != NO_VALUE) {
+            if (!constraint[sudoku[row][column] - 1]) {
+                constraint[sudoku[row][column] - 1] = true;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -19,7 +19,7 @@ public class SolvedScreenController {
     @FXML
     private void continueSolver(ActionEvent event) throws IOException {
 
-        sceneOperations.setScene(event, "landing-screen.fxml");
+        sceneOperations.setScene(event, "input-method-screen.fxml");
     }
 
     @FXML

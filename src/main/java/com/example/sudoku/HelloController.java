@@ -48,19 +48,20 @@ public class HelloController {
 
         int [][] convertedSudoku = convertToRows(sudoka);
 
-        System.out.println(Arrays.deepToString(convertedSudoku));
-
         solverLogic.setSudoku(convertedSudoku);
 
-        if (solverLogic.solveSudoku(solverLogic.getSudoku())){
-
-            sceneOperations.setSolvedScene(event, root, solverLogic);
-
+        if (solverLogic.isSudokuValid(convertedSudoku)){
+            if (solverLogic.solve(convertedSudoku)){
+                sceneOperations.setSolvedScene(event, root, solverLogic);
+            }else{
+                dialogOperations.invalidSudokuAlert();
+            }
         }else{
             dialogOperations.invalidSudokuAlert();
         }
 
     }
+
 
     public int[][] convertToRows(int[][] sudoka) {
         int [][] novaSudoka = new int[9][9];
