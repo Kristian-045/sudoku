@@ -158,12 +158,7 @@ public class SolverLogic {
         return true;
     }
 
-
-    boolean checkConstraint(
-            int[][] sudoku,
-            int row,
-            boolean[] constraint,
-            int column) {
+    boolean checkConstraint(int[][] sudoku, int row, boolean[] constraint, int column) {
         if (sudoku[row][column] != NO_VALUE) {
             if (!constraint[sudoku[row][column] - 1]) {
                 constraint[sudoku[row][column] - 1] = true;

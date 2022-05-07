@@ -87,6 +87,12 @@ public class HelloController {
                 Pane cell = (Pane) scene.lookup(id);
                 Text text = (Text) cell.getChildren().get(0);
                 text.setText(String.valueOf(cislo));
+            }else{
+                String id = lastCellId;
+                Scene scene = sceneOperations.getSceneKeyEvent(event);
+                Pane cell = (Pane) scene.lookup(id);
+                Text text = (Text) cell.getChildren().get(0);
+                text.setText("");
             }
 
             System.out.println(event.getCode());
@@ -137,6 +143,8 @@ public class HelloController {
             cislo = 8;
         } else if (KeyCode.NUMPAD9 == event.getCode()) {
             cislo = 9;
+        }else if(KeyCode.DELETE == event.getCode()){
+            return cislo;
         }
         return cislo;
     }
